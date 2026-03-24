@@ -14,25 +14,82 @@ import Check from './componenets/Check';
 import Thank from './componenets/Thank';
 import Header from './componenets/Header';
 import Footer from './componenets/Footer';
+import AuthGuard from './componenets/AuthGuard';
+import { MyValue } from './componenets/Context';
+import ReactWeb from './componenets/ReactWeb';
+
+import Motion from './componenets/Motion';
+
 
 
 function App() {
+  let list = [
+    {
+      "Productname":"Nordic Chair",
+      "Productprice":"$50.00",
+      "Productimage":"images/product-3.png"
+    },
+      {
+      "Productname":"Nordic Chair",
+      "Productprice":"$50.00",
+      "Productimage":"images/product-1.png"
+    },
+      {
+      "Productname":"Kruzo Aero Chair",
+      "Productprice":"$78.00",
+      "Productimage":"images/product-2.png"
+    },
+      {
+      "Productname":"Ergonomic Chair",
+      "Productprice":"$43.00",
+      "Productimage":"images/product-3.png"
+    },  
+     {
+      "Productname":"Nordic Chair",
+      "Productprice":"$50.00",
+      "Productimage":"images/product-3.png"
+    },
+      {
+      "Productname":"Nordic Chair",
+      "Productprice":"$50.00",
+      "Productimage":"images/product-1.png"
+    },
+      {
+      "Productname":"Kruzo Aero Chair",
+      "Productprice":"$78.00",
+      "Productimage":"images/product-2.png"
+    },
+      {
+      "Productname":"Ergonomic Chair",
+      "Productprice":"$43.00",
+      "Productimage":"images/product-3.png"
+    },  
+  ]
+  
   return (
    <>
+   {/* <ReactWeb/> */}
    <Header/>
-   <Hero/>
-   <Routes>
+   <MyValue.Provider value={"images/bowl-2.png"}>
+   {/* <Hero/> */}
+
+<Routes>
     <Route path='/' element={<Home/>}/>
-    <Route path='/shop' element={<Shop/>}/>
-    <Route path='/aboutus' element={<Aboutus/>}/>
-    <Route path='/services' element={<Services/>}/>
-    <Route path='/blog' element={<Blogger/>}/>
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/Cart' element={<Cart/>}/>
-    <Route path='/check' element={<Check/>}/>
-    <Route path='/thank' element={<Thank/>}/>
+    <Route path='/shop' element={<AuthGuard>
+      <Shop data ={list}/>
+    </AuthGuard>}/>
+    <Route path='/aboutus' element={<AuthGuard><Aboutus/></AuthGuard>}/>
+    <Route path='/services' element={<AuthGuard><Services/></AuthGuard>}/>
+    <Route path='/contact' element={<AuthGuard><Contact/></AuthGuard>}/>
+    <Route path='/blog' element={<AuthGuard><Blogger/></AuthGuard>}/>
+    <Route path='/contact' element={<AuthGuard><Contact/></AuthGuard>}/>
+    <Route path='/Cart' element={<AuthGuard><Cart/></AuthGuard>}/>
+    <Route path='/check' element={<AuthGuard><Check/></AuthGuard>}/>
+    <Route path='/thank' element={<AuthGuard><Thank/></AuthGuard>}/>
+    <Route path='/Motion' element={<Motion/>}/>
    </Routes>
-   <Footer/>
+   </MyValue.Provider>
+   {/* <Footer/> */}
    </>
   );
 }

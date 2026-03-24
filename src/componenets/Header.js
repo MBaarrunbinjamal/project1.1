@@ -24,6 +24,8 @@ function Header() {
 						<li><Link className="nav-link" to="/services">Services</Link></li>
 						<li><Link className="nav-link" to="/blog">Blog</Link></li>
 						<li><Link className="nav-link" to="/contact">Contact</Link></li>
+
+						<li><Link className="nav-link" to="/Motion">Animation</Link></li>
 					</ul>
 
 					<ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

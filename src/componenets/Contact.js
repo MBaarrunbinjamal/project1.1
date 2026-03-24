@@ -1,4 +1,20 @@
+import { useState } from "react";
+
 function Contact() {
+  var[error,seteror]=useState();
+  var para = document.getElementById('error')
+var inp = document.getElementsByClassName('inp');
+  function change(){
+if(inp[0].value == "" || inp[1].value == "" || inp[2].value == "" || inp[3].value == ""){
+seteror("Please fill all the fields")
+// para.style.color="red"
+
+}
+else{
+seteror("Form has been submited ")
+// para.style.color="green"
+}
+  }
 return (
 <>
 	<div className="untree_co-section">
@@ -51,33 +67,34 @@ return (
                   </div>
               </div>
 
-              <form>
+            
+                <p id="error">{error}</p>
                 <div className="row">
                   <div className="col-6">
                     <div className="form-group">
                       <label className="text-black" for="fname">First name</label>
-                      <input type="text" className="form-control" id="fname"/>
+                      <input type="text" className="form-control inp" id="fname "/>
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="form-group">
                       <label className="text-black" for="lname">Last name</label>
-                      <input type="text" className="form-control" id="lname"/>
+                      <input type="text" className="form-control inp" id="lname "/>
                     </div>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="text-black" for="email">Email address</label>
-                  <input type="email" className="form-control" id="email"/>
+                  <input type="email" className="form-control inp" id="email "/>
                 </div>
 
                 <div className="form-group mb-5">
                   <label className="text-black" for="message">Message</label>
-                  <textarea name="" className="form-control" id="message" cols="30" rows="5"></textarea>
+                  <textarea name="" className="form-control inp" id="message " cols="30" rows="5"></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary-hover-outline">Send Message</button>
-              </form>
+                <button className="btn btn-primary-hover-outline"onClick={change}>Send Message</button>
+             
 
             </div>
 
